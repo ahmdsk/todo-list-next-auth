@@ -4,7 +4,7 @@ import { signIn, signOut, useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 
-import { FiChevronDown, FiLogOut, FiLogIn, FiGrid } from 'react-icons/fi';
+import { FiChevronDown, FiLogOut, FiLogIn, FiGrid, FiGithub, FiZap } from "react-icons/fi";
 
 export default function Home() {
   const { data: session } = useSession();
@@ -12,10 +12,13 @@ export default function Home() {
 
   return (
     <div className="container">
-      <div className="flex justify-end sm:px-12 px-0 py-4">
+      <div className="flex justify-end sm:px-12 px-3 py-4">
         {session ? (
           <div className="dropdown dropdown-bottom dropdown-end">
-            <label tabIndex={0} className="m-1 capitalize btn btn-sm btn-ghost font-normal">
+            <label
+              tabIndex={0}
+              className="m-1 capitalize btn btn-sm btn-ghost font-normal px-0"
+            >
               {session.user?.name} <FiChevronDown className="text-xl" />
             </label>
             <ul
@@ -29,7 +32,7 @@ export default function Home() {
               </li>
               <li>
                 <Link href="#" onClick={() => signOut()}>
-                   <FiLogOut /> Logout
+                  <FiLogOut /> Logout
                 </Link>
               </li>
             </ul>
@@ -37,7 +40,7 @@ export default function Home() {
         ) : (
           <Link
             href="#"
-            className="link link-hover flex items-center gap-3  "
+            className="link link-hover flex items-center gap-3"
             onClick={() => signIn()}
           >
             <FiLogIn /> Login
@@ -67,12 +70,19 @@ export default function Home() {
                 designed to help users stay organized and focused on their daily
                 activities. With a clean and user-friendly interface.
               </p>
-              <button
-                className="btn btn-primary normal-case"
-                onClick={() => signIn()}
-              >
-                Get Started
-              </button>
+              <div className="flex justify-center sm:justify-start">
+                <div className="flex items-center gap-2 sm:gap-4">
+                  <button
+                    className="btn btn-neutral normal-case"
+                    onClick={() => signIn()}
+                  >
+                    <FiZap /> Get Started
+                  </button>
+                  <button className="btn btn-outline btn-neutral normal-case">
+                    <FiGithub /> Github
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
