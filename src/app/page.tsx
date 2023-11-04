@@ -11,8 +11,8 @@ export default function Home() {
   // console.log("sesinya: ", session);
 
   return (
-    <div className="container">
-      <div className="flex justify-end sm:px-12 px-3 py-4">
+    <div className="container mx-auto">
+      <div className="flex justify-end lg:px-12 px-3 py-4">
         {session ? (
           <div className="dropdown dropdown-bottom dropdown-end">
             <label
@@ -50,7 +50,7 @@ export default function Home() {
 
       <div className="hero min-h-screen bg-base-100">
         <div className="hero-content">
-          <div className="sm:flex justify-center items-center gap-8">
+          <div className="lg:flex justify-center items-center gap-8">
             <div className="flex-1 pb-6 sm:pb-0">
               <div className="flex justify-end">
                 <div className="w-full sm:w-96 h-48 relative">
@@ -65,7 +65,7 @@ export default function Home() {
             </div>
             <div className="flex-1 p-3">
               <h1 className="text-5xl font-bold">NextTodo</h1>
-              <p className="text-base sm:w-2/3 w-full pt-2 pb-4">
+              <p className="text-base lg:w-2/3 w-full pt-2 pb-4">
                 NextTodo is a simple yet efficient task management application
                 designed to help users stay organized and focused on their daily
                 activities. With a clean and user-friendly interface.
