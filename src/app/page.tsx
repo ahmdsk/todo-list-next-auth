@@ -4,7 +4,7 @@ import { signIn, signOut, useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 
-import { FiChevronDown } from 'react-icons/fi';
+import { FiChevronDown, FiLogOut, FiLogIn, FiGrid } from 'react-icons/fi';
 
 export default function Home() {
   const { data: session } = useSession();
@@ -12,7 +12,7 @@ export default function Home() {
 
   return (
     <div className="container">
-      <div className="flex justify-end sm:px-12 px-6 py-6">
+      <div className="flex justify-end sm:px-12 px-0 py-4">
         {session ? (
           <div className="dropdown dropdown-bottom dropdown-end">
             <label tabIndex={0} className="m-1 capitalize btn btn-sm btn-ghost font-normal">
@@ -23,11 +23,13 @@ export default function Home() {
               className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <Link href="#">Dashboard</Link>
+                <Link href="#">
+                  <FiGrid /> Dashboard
+                </Link>
               </li>
               <li>
                 <Link href="#" onClick={() => signOut()}>
-                  Logout
+                   <FiLogOut /> Logout
                 </Link>
               </li>
             </ul>
@@ -35,10 +37,10 @@ export default function Home() {
         ) : (
           <Link
             href="#"
-            className="link link-hover font-medium"
+            className="link link-hover flex items-center gap-3  "
             onClick={() => signIn()}
           >
-            Login
+            <FiLogIn /> Login
           </Link>
         )}
       </div>
