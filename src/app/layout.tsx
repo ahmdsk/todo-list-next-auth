@@ -22,7 +22,8 @@ export default function RootLayout({
 }) {
   return (
     <SessionProvider>
-      <html lang="en" data-theme="dark">
+      <html lang="en" data-theme="light">
+        <title>{metadata.title as String}</title>
         <body className={poppins.className}>{children}</body>
       </html>
     </SessionProvider>
