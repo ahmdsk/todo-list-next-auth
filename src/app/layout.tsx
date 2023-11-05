@@ -1,5 +1,6 @@
 "use client";
 
+import Header from "@/components/Header";
 import "./globals.css";
 import type { Metadata } from "next";
 import { SessionProvider } from "next-auth/react";
@@ -24,7 +25,12 @@ export default function RootLayout({
     <SessionProvider>
       <html lang="en" data-theme="light">
         <title>{metadata.title as String}</title>
-        <body className={poppins.className}>{children}</body>
+        <body className={poppins.className}>
+          <div className="container mx-auto">
+            <Header />        
+            {children}
+          </div>
+        </body>
       </html>
     </SessionProvider>
   );
