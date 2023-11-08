@@ -1,6 +1,9 @@
+"use client";
+
 import Tasks from "@/components/Tasks";
 import { Metadata } from "next";
-import { FiCheck, FiPlus, FiSearch, FiTrash } from "react-icons/fi";
+import Link from "next/link";
+import { FiPlus, FiSearch } from "react-icons/fi";
 
 export const metadata: Metadata = {
   title: "Dashboard",
@@ -24,10 +27,10 @@ export default function Dashboard() {
 
         {/* Add Modal List */}
         <div className="">
-          <button className="btn btn-neutral">
+          <Link href="/create" className="btn btn-neutral">
             <FiPlus />
             <span className="hidden sm:inline">Add Task</span>
-          </button>
+          </Link>
         </div>
         {/* End Modal List */}
       </div>
