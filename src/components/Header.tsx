@@ -2,12 +2,10 @@ import Link from "next/link";
 import { useSession, signOut, signIn } from "next-auth/react";
 
 import { FiChevronDown, FiLogOut, FiLogIn, FiGrid } from "react-icons/fi";
-import { useEffect, useState } from "react";
-import { Session } from "next-auth";
 
 export default function Header() {
   const { data: session } = useSession();
-  
+
   return (
     <div className="flex justify-end lg:px-12 px-3 py-4">
       {session ? (

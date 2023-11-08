@@ -1,12 +1,15 @@
 "use client";
 
-import { signIn } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
+import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 
-import { FiGithub, FiZap } from "react-icons/fi";
+import { FiGithub, FiPlus, FiZap } from "react-icons/fi";
 
 export default function Home() {
+  const { data: session } = useSession();
+
   return (
     <div className="hero min-h-screen bg-base-100">
       <div className="hero-content">
@@ -32,12 +35,21 @@ export default function Home() {
             </p>
             <div className="flex justify-center sm:justify-start">
               <div className="flex items-center gap-2 sm:gap-4">
-                <button
-                  className="btn btn-neutral normal-case"
-                  onClick={() => signIn()}
-                >
-                  <FiZap /> Get Started
-                </button>
+                {session ? (
+                  <Link
+                    href="/dashboard"
+                    className="btn btn-neutral normal-case"
+                  >
+                    <FiPlus /> Create List
+                  </Link>
+                ) : (
+                  <button
+                    className="btn btn-neutral normal-case"
+                    onClick={() => signIn()}
+                  >
+                    <FiZap /> Get Started
+                  </button>
+                )}
                 <button className="btn btn-outline btn-neutral normal-case">
                   <FiGithub /> Github
                 </button>

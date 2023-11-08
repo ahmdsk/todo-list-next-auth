@@ -24,7 +24,8 @@ export default function RootLayout({
   return (
     <SessionProvider>
       <html lang="en" data-theme="light">
-        <title>{metadata.title as String}</title>
+        <title>{metadata.title?.toString()}</title>
+        <meta name="description" content={metadata.description as string} />
         <body className={poppins.className}>
           <div className="container mx-auto">
             <Header />        
